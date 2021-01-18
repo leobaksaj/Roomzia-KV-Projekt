@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityMyOffer">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationCleaner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#808080"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_navigationcleaner" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewPrihvacenePonude"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationCleaner"
+        app:layout_constraintTop_toTopOf="parent"   />
+
+    <TextView
+        android:id="@+id/textViewPorukaPrihvacenePonude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Još nema prihvaćenih ponuda"
+        android:textSize="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationCleaner"
+        app:layout_constraintEnd_toEndOf="@+id/recycleViewPrihvacenePonude"
+        app:layout_constraintStart_toStartOf="@+id/recycleViewPrihvacenePonude"
+        app:layout_constraintTop_toTopOf="@+id/recycleViewPrihvacenePonude" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

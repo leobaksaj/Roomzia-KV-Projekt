@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "502336620382",
+    "firebase_url": "https://roomcia-68af2-default-rtdb.firebaseio.com",
+    "project_id": "roomcia-68af2",
+    "storage_bucket": "roomcia-68af2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502336620382:android:af7aed5ab987fb814ff1cf",
+        "android_client_info": {
+          "package_name": "com.example.roomcia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502336620382-3cq44ec32hppvkr77923am569d3nfc4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB010PC3flequdruvHdT5gHjuKxsYNzhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502336620382-3cq44ec32hppvkr77923am569d3nfc4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502336620382:android:6ecb7e09a00c99de4ff1cf",
+        "android_client_info": {
+          "package_name": "com.example.roomzia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502336620382-3cq44ec32hppvkr77923am569d3nfc4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB010PC3flequdruvHdT5gHjuKxsYNzhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502336620382-3cq44ec32hppvkr77923am569d3nfc4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
