@@ -2,4 +2,49 @@
     <string name="app_name">Roomzia</string>
 
     <string name="textViewNaslov"></string>
+    <!-- BUTTON -->
+    <string name="kreiraj_oglas">Kreiraj oglas</string>
+    <string name="buttonObjavi">Objavi</string>
+    <string name="buttonPosalji">Pošalji</string>
+    <string name="buttonLogin">LOGIN</string>
+    <string name="buttonRegistracija">Registracija</string>
+    <string name="buttonRegistrirajme">Registriraj me</string>
+    <string name="buttonPrihvatiPonudu">Prihvati ponudu</string>
+    <string name="buttonPrijaviSeZaOglas">Prijavi se za oglas</string>
+    <string name="buttonOznaciKaoOdradeno">Označi kao odrađeno</string>
+
+    <!-- VARIABLES -->
+    <string name="naslov">Naslov</string>
+    <string name="kvadratura">Kvadratura</string>
+    <string name="opis">Opis</string>
+    <string name="grad">Grad</string>
+    <string name="ulicakucni">Ulica-kucni broj</string>
+    <string name="datum">Datum</string>
+    <string name="vrijeme">Vrijeme</string>
+
+    <string name="kreirajPonudu">Kreiraj ponudu za oglas</string>
+    <string name="opisP">Opis:</string>
+    <string name="gradP">Grad-></string>
+    <string name="ulicaP">Ulica-></string>
+    <string name="datumP">Datum i vrijeme-></string>
+    <string name="kontaktP">Kontakt-></string>
+    <string name="kvadraturaP">Kvadratura-></string>
+    <string name="cijenaP">Cijena (kn/h)-></string>
+    <string name="ulogirajse">ULOGIRAJTE SE</string>
+    <string name="REGISTRACIJA">Registracija</string>
+    <string name="registrirajtese">Registrirajte se!</string>
+    <string name="trebam">Trebam čišćenje</string>
+    <string name="zelim">Želim čistiti</string>
+    <string name="brPonuda">Broj Ponuda</string>
+    <string name="buttonPogledajponude">Pogledaj ponude</string>
+    <string name="ponudenaCijena">Ponuđena cijena:</string>
+    <string name="ime">Ime:</string>
+    <string name="kontakt">Kontakt</string>
+
+    <string-array name="logout">
+        <item></item>
+        <item>Log Out</item>
+    </string-array>
+
+
 </resources>

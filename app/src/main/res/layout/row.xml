@@ -53,7 +53,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Opis: "
+            android:text="@string/opisP"
             android:textSize="20dp"
             android:textColor="@color/black"/>
 
@@ -130,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Prijavi se za oglas"
+            android:text="@string/buttonPrijaviSeZaOglas"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:backgroundTint="#1E88E5"/>

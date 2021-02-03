@@ -12,6 +12,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class CleanerActivity extends AppCompatActivity {
+public class CleanerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference references, references1;
@@ -41,6 +44,7 @@ public class CleanerActivity extends AppCompatActivity {
     String idPonudaOglas;
     String idUseraUponudi;
     BottomNavigationView bottomNav;
+    public Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,14 @@ public class CleanerActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.logout, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+        mAuth = FirebaseAuth.getInstance();
+
         ///////////////////// PRISTUP BAZI
         firebaseDatabase = FirebaseDatabase.getInstance();
         references = firebaseDatabase.getReference("Oglasi");
@@ -135,5 +147,24 @@ public class CleanerActivity extends AppCompatActivity {
                 Toast.makeText(CleanerActivity.this, "Pogreška!", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        if (text.equals("Log Out"))
+        {
+            mAuth.signOut();
+            Intent intent = new Intent(CleanerActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+        else{
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

@@ -13,6 +13,9 @@ import android.provider.Contacts;
 import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,7 +30,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class ActivityMyOffer extends AppCompatActivity {
+public class ActivityMyOffer extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     BottomNavigationView bottomNav;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference references,references1;
@@ -38,6 +41,7 @@ public class ActivityMyOffer extends AppCompatActivity {
     AdapterForShowMyOffer adapterClassPonude;
     public ArrayList<ClassShowOffer> lMojePonude;
     ArrayList<OfferClass> lPonude;
+    public Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,5 +130,31 @@ public class ActivityMyOffer extends AppCompatActivity {
                 return false;
             }
         });
+
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.logout, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        if (text.equals("Log Out"))
+        {
+            mAuth.signOut();
+            Intent intent = new Intent(ActivityMyOffer.this, MainActivity.class);
+            startActivity(intent);
+        }
+        else{
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
