@@ -12,12 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#0000FF"
-            android:layout_margin="10dp"/>
+        android:orientation="vertical"
+        android:background="@drawable/layout_bg"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,14 +30,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Ponuđena cijena: "
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/textViewPonCijena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,14 +54,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Ime: "
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/textViewImeCis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,14 +77,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Kontakt: "
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/textViewKontaktCistaca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <Button
@@ -91,14 +96,12 @@
             android:layout_weight="1"
             android:text="Prihvati ponudu"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#1E88E5"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="#0000FF"/>
+
         </LinearLayout>
     </LinearLayout>
 

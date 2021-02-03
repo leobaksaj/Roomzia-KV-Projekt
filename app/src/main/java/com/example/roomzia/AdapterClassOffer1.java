@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,6 @@ public class AdapterClassOffer1 extends RecyclerView.Adapter<AdapterClassOffer1.
     ArrayList<CreateOfferClass> lOffer;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference references,references1;
-    FirebaseAuth mAuth;
 
     public AdapterClassOffer1(Context context, ArrayList<CreateOfferClass> lOffer) {
         this.context = context;
@@ -51,9 +51,7 @@ public class AdapterClassOffer1 extends RecyclerView.Adapter<AdapterClassOffer1.
         holder.mIme.setText(lOffer.get(position).getIme() +" "+ lOffer.get(position).getPrezime());
         holder.mKontakt.setText(lOffer.get(position).getKontakt());
         holder.onClick(position);
-
     }
-
 
     @Override
     public int getItemCount() {
@@ -63,7 +61,6 @@ public class AdapterClassOffer1 extends RecyclerView.Adapter<AdapterClassOffer1.
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView mPonudenaCijena,mIme,mKontakt,txt;
         Button buttonPrihvatPonudu;
-        Button buttonCloseDialog;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mPonudenaCijena = (TextView) itemView.findViewById(R.id.textViewPonCijena);
@@ -98,7 +95,8 @@ public class AdapterClassOffer1 extends RecyclerView.Adapter<AdapterClassOffer1.
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     snapshot.getRef().child(lOffer.get(position).getIdOglasa()).child("zauzece").setValue("2");
-                                    this.notifyAll();
+                                    Intent intent = new Intent(context, ProviderAdsActivity.class);
+                                    context.startActivity(intent);
                                 }
 
                                 @Override

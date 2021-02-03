@@ -1,11 +1,13 @@
 package com.example.roomzia;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -13,8 +15,11 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -27,6 +32,9 @@ public class CreateAdActivity extends AppCompatActivity{
     private  EditText mNaslov,mKvadratura,mOpis,mGrad,mUlica,mKontakt;
     DatabaseReference reference;
     FirebaseAuth mAuth;
+
+    public String kontakt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,11 +81,27 @@ public class CreateAdActivity extends AppCompatActivity{
         mOpis = findViewById(R.id.editTextOpis);
         mGrad = findViewById(R.id.editTextGrad);
         mUlica = findViewById(R.id.editTextUlica);
-        mKontakt = findViewById(R.id.editTextKontakt);
         spremiOglasButton = findViewById(R.id.buttonObjaviOglas);
         spremiOglasButton.setOnClickListener(this::onClick);
 
-        reference = FirebaseDatabase.getInstance().getReference("Oglasi");
+        String UID1 = mAuth.getInstance().getCurrentUser().getUid();
+
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.orderByKey().equalTo(UID1).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    kontakt = (String) ds.child("kontakt").getValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+       // reference = FirebaseDatabase.getInstance().getReference("Oglasi");
     }
 
     public void onClick(View v) {
@@ -94,7 +118,7 @@ public class CreateAdActivity extends AppCompatActivity{
         String opis = mOpis.getText().toString();
         String grad = mGrad.getText().toString();
         String ulica = mUlica.getText().toString();
-        String kontakt = mKontakt.getText().toString();
+       // String kontakt = mKontakt.getText().toString();
         String datum = mDatum.getText().toString();
         String vrijeme = mTime.getText().toString();
         String zauzece = "1";
@@ -135,11 +159,11 @@ public class CreateAdActivity extends AppCompatActivity{
            mTime.requestFocus();
            return;
        }
-        if(kontakt.isEmpty()){
+        /*if(kontakt.isEmpty()){
             mKontakt.setError("Popunite polje!");
             mKontakt.requestFocus();
             return;
-        }
+        }*/
 
         OglasClass oglas = new OglasClass("2", naslov,opis,grad,ulica,kontakt,kvadratura +"m2",datum,vrijeme,zauzece,UID);
         FirebaseDatabase.getInstance().getReference().child("Oglasi").push().setValue(oglas);

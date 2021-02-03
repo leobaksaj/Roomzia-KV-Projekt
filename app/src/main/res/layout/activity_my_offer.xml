@@ -10,7 +10,7 @@
         android:id="@+id/bottomNavigationCleaner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backgroundTint="#808080"
+        app:backgroundTint="@color/white"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,6 +33,9 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationCleaner"
         app:layout_constraintEnd_toEndOf="@+id/recycleViewPrihvacenePonude"
         app:layout_constraintStart_toStartOf="@+id/recycleViewPrihvacenePonude"
-        app:layout_constraintTop_toTopOf="@+id/recycleViewPrihvacenePonude" />
+        app:layout_constraintTop_toTopOf="@+id/recycleViewPrihvacenePonude"
+        android:textColor="@color/black"
+        android:background="@drawable/layout_bg"
+        android:padding="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

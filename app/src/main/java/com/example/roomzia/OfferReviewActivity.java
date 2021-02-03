@@ -81,6 +81,7 @@ public class OfferReviewActivity extends AppCompatActivity {
         references1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lPonude.clear();
                 for (DataSnapshot ds : snapshot.getChildren())
                 {
                     String idponude = ds.getKey();
@@ -101,6 +102,7 @@ public class OfferReviewActivity extends AppCompatActivity {
                     }
                     adapterClassPonude = new AdapterClassOffer1(OfferReviewActivity.this, lPonude);
                     recyclerViewPonude.setAdapter(adapterClassPonude);
+                    recyclerViewPonude.invalidate();
                 }
             }
 

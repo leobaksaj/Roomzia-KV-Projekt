@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,12 +23,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class CleanerActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference references,references1;
+    private DatabaseReference references, references1;
     FirebaseAuth mAuth;
 
     private RecyclerView recyclerViewOglasi;
@@ -38,6 +41,7 @@ public class CleanerActivity extends AppCompatActivity {
     String idPonudaOglas;
     String idUseraUponudi;
     BottomNavigationView bottomNav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,16 +54,16 @@ public class CleanerActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch(item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.mojePonude:
                         startActivity(new Intent(getApplicationContext(), ActivityMyOffer.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.aktivniOglasiCleaner:
                         return true;
                     case R.id.odradeniPoslovi:
                         startActivity(new Intent(getApplicationContext(), ActivityDoneJobCleaner.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -75,53 +79,61 @@ public class CleanerActivity extends AppCompatActivity {
         recyclerViewOglasi.setLayoutManager(mLayoutManager);
         lOglasi = new ArrayList<OglasClass>();
         UID = mAuth.getInstance().getCurrentUser().getUid();
-
-        references.addValueEventListener(new ValueEventListener() {
+        lOglasi.clear();
+        references.orderByChild("datum").addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lOglasi.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                        String idOGlasa = ds.getKey();
-                        OglasClass p = ds.getValue(OglasClass.class);
-                        p.setIDOglasa(idOGlasa);
-                        lOglasi.add(p);
+                    String idOGlasa = ds.getKey();
+                    OglasClass p = ds.getValue(OglasClass.class);
+                    p.setIDOglasa(idOGlasa);
+                    lOglasi.add(p);
+                    lOglasi.removeIf(t -> t.getZauzece().equals("2"));
+                    TextView txt = findViewById(R.id.textViewporukaCistac);
+                    if (lOglasi.isEmpty()) {
+                        txt.setVisibility(View.VISIBLE);
+                    } else {
+                        txt.setVisibility(View.INVISIBLE);
                     }
-                lOglasi.removeIf(t -> t.getZauzece().equals("2"));
-                adapterClassOglas = new MyAdapterClassOglas(CleanerActivity.this, lOglasi);
-                TextView txt = findViewById(R.id.textViewporukaCistac);
-                if (lOglasi.isEmpty())
-                {
-                    txt.setVisibility(View.VISIBLE);
-                }else
-                {
-                    txt.setVisibility(View.GONE);
+                    references1.addValueEventListener(new ValueEventListener() {
+                        @RequiresApi(api = Build.VERSION_CODES.N)
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                CreateOfferClass offrClas = ds.getValue(CreateOfferClass.class);
+                                idPonudaOglas = offrClas.getIdOglasa();
+                                idUseraUponudi = offrClas.getClearnerID();
+                                if (idUseraUponudi.equals(UID)) {
+                                    lOglasi.removeIf(t -> t.getIDOglasa().equals(idPonudaOglas));
+                                }
+                            }
+                            adapterClassOglas = new MyAdapterClassOglas(CleanerActivity.this, lOglasi);
+                            recyclerViewOglasi.setAdapter(adapterClassOglas);
+                            adapterClassOglas.notifyDataSetChanged();
+                            TextView txt = findViewById(R.id.textViewporukaCistac);
+                            if (lOglasi.isEmpty())
+                            {
+                                txt.setVisibility(View.VISIBLE);
+                            }
+                            else
+                            {
+                                txt.setVisibility(View.INVISIBLE);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-                recyclerViewOglasi.setAdapter(adapterClassOglas);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(CleanerActivity.this, "Pogreška!",Toast.LENGTH_LONG).show();
+                Toast.makeText(CleanerActivity.this, "Pogreška!", Toast.LENGTH_LONG).show();
             }
         });
-        
-       references1.addValueEventListener(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()){
-                    CreateOfferClass offrClas = ds.getValue(CreateOfferClass.class);
-                    idPonudaOglas = offrClas.getIdOglasa();
-                    idUseraUponudi = offrClas.getClearnerID();
-                    if (idUseraUponudi.equals(UID)) {
-                        lOglasi.removeIf(t -> t.getIDOglasa().equals(idPonudaOglas));
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
     }
 }

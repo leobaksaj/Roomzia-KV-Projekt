@@ -29,8 +29,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ProviderAdsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -82,16 +89,16 @@ public class ProviderAdsActivity extends AppCompatActivity implements View.OnCli
         listaPomocna = new ArrayList<CreateOfferClass>();
         listaOglasaSaPonudama = new ArrayList<AdsWithOfferClass>();
         UID = mAuth.getInstance().getCurrentUser().getUid();
-
-        references.addValueEventListener(new ValueEventListener() {
+        listaOglasaSaPonudama.clear();
+        references.orderByChild("datum").addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                listaOglasaSaPonudama.clear();
                 for (DataSnapshot ds : snapshot.getChildren())
                 {
                     String idOglasa = ds.getKey();
-                    references1.addValueEventListener(new ValueEventListener() {
+                    references1.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             int brojPonuda = 0;
@@ -120,9 +127,9 @@ public class ProviderAdsActivity extends AppCompatActivity implements View.OnCli
                                 txt.setVisibility(View.INVISIBLE);
                             }
                             adapterZaOglaseSaPonudama = new AdapterForAdOfferClass(ProviderAdsActivity.this, listaOglasaSaPonudama);
+                            //adapterZaOglaseSaPonudama.notifyDataSetChanged();
                             recyclerViewOglasiPonude.setAdapter(adapterZaOglaseSaPonudama);
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
@@ -143,5 +150,9 @@ public class ProviderAdsActivity extends AppCompatActivity implements View.OnCli
                 Intent intent = new Intent(ProviderAdsActivity.this, CreateAdActivity.class);
                 startActivity(intent);
         }
+    }
+    public static Date toDate(String value) throws ParseException {
+        DateFormat format = new SimpleDateFormat("d MMMM yyyy", Locale.ENGLISH);
+        return format.parse(value);
     }
 }

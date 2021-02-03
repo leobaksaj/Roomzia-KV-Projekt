@@ -30,6 +30,8 @@ public class OldAdsActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference references, references1;
 
+    public boolean data_changed = false;
+
     private ArrayList<CreateOfferClass> listaPomocna ;
     private ArrayList<AdsWithOfferClass> listaOglasaSaPonudama;
     RecyclerView recyclerViewOglasiPonude;
@@ -71,24 +73,22 @@ public class OldAdsActivity extends AppCompatActivity {
         UID = mAuth.getInstance().getCurrentUser().getUid();
         listaPomocna = new ArrayList<CreateOfferClass>();
         listaOglasaSaPonudama = new ArrayList<AdsWithOfferClass>();
-
-        references.addValueEventListener(new ValueEventListener() {
+        listaOglasaSaPonudama.clear();
+        references.orderByChild("datum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren())
-                {
+                listaOglasaSaPonudama.clear();
+                for (DataSnapshot ds : snapshot.getChildren()) {
                     String idOglasa = ds.getKey();
                     references1.addValueEventListener(new ValueEventListener() {
                         @RequiresApi(api = Build.VERSION_CODES.N)
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             int brojPonuda = 0;
-                            for (DataSnapshot ds1 : snapshot.getChildren())
-                            {
+                            for (DataSnapshot ds1 : snapshot.getChildren()) {
                                 CreateOfferClass ponuda = ds1.getValue(CreateOfferClass.class);
                                 listaPomocna.add(ponuda);
-                                if (idOglasa.equals(ponuda.getIdOglasa()))
-                                {
+                                if (idOglasa.equals(ponuda.getIdOglasa())) {
                                     brojPonuda++;
                                 }
                             }
@@ -99,12 +99,10 @@ public class OldAdsActivity extends AppCompatActivity {
                             listaOglasaSaPonudama.add(oglas);
                             listaOglasaSaPonudama.removeIf(t -> !t.getUserID().equals(UID));
                             listaOglasaSaPonudama.removeIf(t -> !t.getZauzece().equals("2"));
-                            TextView txt =  findViewById(R.id.textViewPorukaDavateljStari);
-                            if (listaOglasaSaPonudama.isEmpty())
-                            {
+                            TextView txt = findViewById(R.id.textViewPorukaDavateljStari);
+                            if (listaOglasaSaPonudama.isEmpty()) {
                                 txt.setVisibility(View.VISIBLE);
-                            }else
-                            {
+                            } else {
                                 txt.setVisibility(View.INVISIBLE);
                             }
                             adapterZaOglaseSaPonudama = new AdapterForAdOfferClass(OldAdsActivity.this, listaOglasaSaPonudama);
@@ -123,12 +121,5 @@ public class OldAdsActivity extends AppCompatActivity {
 
             }
         });
-        TextView txt = findViewById(R.id.textViewPorukaDavateljStari);
-        if (listaOglasaSaPonudama.isEmpty())
-        {
-            txt.setVisibility(View.VISIBLE);
-        }
-
-
     }
 }

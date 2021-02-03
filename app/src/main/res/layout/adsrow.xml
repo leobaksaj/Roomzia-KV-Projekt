@@ -11,7 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/layout_bg"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,17 +24,20 @@
             android:layout_marginEnd="10dp">
             <TextView
                 android:id="@+id/textViewNaslov"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="25dp" />
+                android:textSize="24dp"
+                android:textColor="@color/black"/>
+
             <TextView
                 android:id="@+id/textViewKvadratura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text=""
-                android:textSize="20dp" />
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textAlignment="viewEnd"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Opis: "
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/textViewOpis"
@@ -54,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,14 +77,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/textViewUlica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,14 +101,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/textViewVrijeme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
         <TextView
             android:id="@+id/textViewKontakt"
@@ -108,7 +120,8 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="TextView"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,14 +134,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Broj Ponuda"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/textViewBrojPonudaFunc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
         <TextView
             android:id="@+id/textViewidOglasa"
@@ -144,15 +159,12 @@
             android:layout_weight="1"
             android:text="Pogledaj ponude"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#1E88E5"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#0000FF" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

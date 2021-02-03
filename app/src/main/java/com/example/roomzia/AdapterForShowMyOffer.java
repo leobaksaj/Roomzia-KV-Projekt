@@ -53,7 +53,7 @@ public class AdapterForShowMyOffer extends RecyclerView.Adapter<AdapterForShowMy
         holder.mKontakt.setText(lMojePonude.get(position).getKontakt());
         holder.mDatum.setText(lMojePonude.get(position).getDatum());
         holder.mTime.setText(lMojePonude.get(position).getVrijeme());
-        holder.mPonudenaCijena.setText(lMojePonude.get(position).getCijena());
+        holder.mPonudenaCijena.setText(lMojePonude.get(position).getCijena() + " kn/h");
         holder.mIDPonude.setText(lMojePonude.get(position).getIdPonude());
         if (lMojePonude.get(position).getZauzeto().equals("3"))
         {
@@ -103,6 +103,7 @@ public class AdapterForShowMyOffer extends RecyclerView.Adapter<AdapterForShowMy
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     snapshot.getRef().child(lMojePonude.get(position).getIdPonude()).child("zauzeto").setValue("3");
                                     Intent intent = new Intent(context,ActivityMyOffer.class );
+                                    context.startActivity(intent);
                                 }
 
                                 @Override

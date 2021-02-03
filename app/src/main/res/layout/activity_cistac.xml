@@ -7,23 +7,33 @@
     tools:context=".CleanerActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewOglasi"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationCleaner"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewOglasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationCleaner"
-        app:backgroundTint="#808080"
-        app:itemTextColor="@drawable/selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/white"
         app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_navigationcleaner"
-        />
+        app:menu="@menu/menu_navigationcleaner" />
 
     <TextView
         android:id="@+id/textViewporukaCistac"
@@ -32,10 +42,13 @@
         android:text="Nema aktivnih oglasa!"
         android:textSize="16dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/recycleViewOglasi"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/layout_bg"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

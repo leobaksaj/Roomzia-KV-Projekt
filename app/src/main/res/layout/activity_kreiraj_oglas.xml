@@ -6,210 +6,237 @@
     android:layout_height="match_parent"
     tools:context=".CreateAdActivity">
 
-    <TextView
-        android:id="@+id/textViewDatum"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Datum"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewVrijeme"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextGrad" />
-
-    <EditText
-        android:id="@+id/editTextDatum"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:hint="Datum"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextVrijeme"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDatum" />
-
-    <EditText
-        android:id="@+id/editTextVrijeme"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="Vrijeme"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextDatum"
-        app:layout_constraintTop_toBottomOf="@+id/textViewVrijeme" />
-
-    <TextView
-        android:id="@+id/textViewVrijeme"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Vrijeme"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewDatum"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUlica" />
-
-    <TextView
-        android:id="@+id/textViewNaslov"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="150dp"
-        android:text="Naslov"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewKvadratura"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewKvadratura"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="Kvadratura"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewNaslov"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_margin="20dp"
+        android:background="@drawable/layout_bg">
 
-    <EditText
-        android:id="@+id/editTextNaslov"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Naslov"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextKvadratura"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNaslov"
-        android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/textViewDatum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Datum"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewVrijeme"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextGrad"
+            android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/editTextKvadratura"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:hint="Kvadratura"
-        android:inputType="text"
-        android:layout_marginStart="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextNaslov"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKvadratura" />
+        <EditText
+            android:id="@+id/editTextDatum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="Datum"
+            app:layout_constraintEnd_toStartOf="@+id/editTextVrijeme"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDatum"
+            app:boxBackgroundColor="#BBDEFB"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"
+            />
 
-    <TextView
-        android:id="@+id/textViewOpis"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Opis"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNaslov"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <EditText
+            android:id="@+id/editTextVrijeme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Vrijeme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/editTextDatum"
+            app:layout_constraintTop_toBottomOf="@+id/textViewVrijeme"
+            app:boxBackgroundColor="#BBDEFB"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/editTextOpis"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Opis"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOpis"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        <TextView
+            android:id="@+id/textViewVrijeme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="Vrijeme"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewDatum"
+            app:layout_constraintTop_toBottomOf="@+id/editTextUlica"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/textViewGrad"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Grad"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextOpis"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUlica"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/textViewNaslov"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:text="Naslov"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewKvadratura"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/textViewUlica"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Ulica-kućni broj"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewGrad"
-        app:layout_constraintTop_toBottomOf="@+id/editTextOpis" />
+        <TextView
+            android:id="@+id/textViewKvadratura"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:text="Kvadratura"
+            android:textSize="20dp"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewNaslov"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/editTextGrad"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Grad"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextUlica"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGrad"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/editTextNaslov"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="Naslov"
+            app:layout_constraintEnd_toStartOf="@+id/editTextKvadratura"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNaslov"
+            app:boxBackgroundColor="#BBDEFB"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/editTextUlica"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Ulica"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextGrad"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUlica"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"/>
+        <EditText
+            android:id="@+id/editTextKvadratura"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Kvadratura"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextNaslov"
+            app:layout_constraintTop_toBottomOf="@+id/textViewKvadratura"
+            app:boxBackgroundColor="#BBDEFB"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kontakt"
-        android:textSize="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDatum" />
+        <TextView
+            android:id="@+id/textViewOpis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Opis"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNaslov"
+            android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/editTextKontakt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:inputType="number"
-        android:hint="Kontakt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        <EditText
+            android:id="@+id/editTextOpis"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Opis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOpis"
+            app:boxBackgroundColor="#BBDEFB"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/buttonObjaviOglas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Objavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextKontakt"
-        android:layout_margin="20dp"/>
+        <TextView
+            android:id="@+id/textViewGrad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Grad"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUlica"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextOpis"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/textViewUlica"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="Ulica-kućni broj"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewGrad"
+            app:layout_constraintTop_toBottomOf="@+id/editTextOpis"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/editTextGrad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="Grad"
+            app:layout_constraintEnd_toStartOf="@+id/editTextUlica"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewGrad"
+            android:backgroundTint="@color/black"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/editTextUlica"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Ulica"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextGrad"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUlica"
+            app:boxBackgroundColor="#BBDEFB"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"/>
+
+
+        <Button
+            android:id="@+id/buttonObjaviOglas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="#1E88E5"
+            android:text="Objavi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDatum" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

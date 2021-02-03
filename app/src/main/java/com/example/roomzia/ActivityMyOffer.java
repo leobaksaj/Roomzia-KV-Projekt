@@ -36,7 +36,7 @@ public class ActivityMyOffer extends AppCompatActivity {
     RecyclerView recyclerViewPrihvacenePonude;
     RecyclerView.LayoutManager mLayoutManager;
     AdapterForShowMyOffer adapterClassPonude;
-    ArrayList<ClassShowOffer> lMojePonude;
+    public ArrayList<ClassShowOffer> lMojePonude;
     ArrayList<OfferClass> lPonude;
 
     @Override
@@ -57,14 +57,14 @@ public class ActivityMyOffer extends AppCompatActivity {
         recyclerViewPrihvacenePonude = findViewById(R.id.recycleViewPrihvacenePonude);
         mLayoutManager = new LinearLayoutManager(this);
         recyclerViewPrihvacenePonude.setLayoutManager(mLayoutManager);
-
-        references.addValueEventListener(new ValueEventListener() {
+        lMojePonude.clear();
+        references.orderByChild("datum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lMojePonude.clear();
                 for (DataSnapshot ds : snapshot.getChildren())
                 {
                     String idOglasa = ds.getKey();
-
                     references1.addValueEventListener(new ValueEventListener() {
                         @RequiresApi(api = Build.VERSION_CODES.N)
                         @Override
@@ -94,7 +94,6 @@ public class ActivityMyOffer extends AppCompatActivity {
                             adapterClassPonude = new AdapterForShowMyOffer(lMojePonude, ActivityMyOffer.this);
                             recyclerViewPrihvacenePonude.setAdapter(adapterClassPonude);
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
@@ -102,7 +101,6 @@ public class ActivityMyOffer extends AppCompatActivity {
                     });
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -128,10 +126,5 @@ public class ActivityMyOffer extends AppCompatActivity {
                 return false;
             }
         });
-        TextView textview = findViewById(R.id.textViewPorukaPrihvacenePonude);
-        if (lMojePonude.isEmpty())
-        {
-            textview.setVisibility(View.VISIBLE);
-        }
     }
 }

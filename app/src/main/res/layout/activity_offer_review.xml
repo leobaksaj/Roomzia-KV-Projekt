@@ -12,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:background="@drawable/layout_bg"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,18 +33,19 @@
 
                 <TextView
                     android:id="@+id/textViewNaslov"
-                    android:layout_width="300dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textViewKvadratura"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=""
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
             <LinearLayout
@@ -56,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Opis: "
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textViewOpis"
@@ -64,7 +70,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
             <LinearLayout
@@ -80,7 +87,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textViewUlica"
@@ -88,7 +96,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +113,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/textViewVrijeme"
@@ -112,7 +122,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="TextView"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
             <TextView
                 android:id="@+id/textViewIdOglasa"
@@ -124,11 +135,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:background="#0000FF" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -152,7 +158,11 @@
         app:layout_constraintBottom_toBottomOf="@+id/recycleViewPonudeZaOglas"
         app:layout_constraintEnd_toEndOf="@+id/recycleViewPonudeZaOglas"
         app:layout_constraintStart_toStartOf="@+id/recycleViewPonudeZaOglas"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:textColor="@color/black"
+        android:background="@drawable/layout_bg"
+        android:padding="15dp"
+        android:layout_marginTop="30dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

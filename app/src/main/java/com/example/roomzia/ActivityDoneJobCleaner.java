@@ -52,9 +52,10 @@ public class ActivityDoneJobCleaner extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         recyclerViewPrihvacenePonude.setLayoutManager(mLayoutManager);
 
-        references.addValueEventListener(new ValueEventListener() {
+        references.orderByChild("datum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lMojePonude.clear();
                 for (DataSnapshot ds : snapshot.getChildren())
                 {
                     String idOglasa = ds.getKey();
@@ -95,11 +96,6 @@ public class ActivityDoneJobCleaner extends AppCompatActivity {
 
                         }
                     });
-                    TextView txt = findViewById(R.id.textViewPorukaOdradeniPoslovi);
-                    if (lMojePonude.isEmpty())
-                    {
-                        txt.setVisibility(View.VISIBLE);
-                    }
                 }
             }
 
